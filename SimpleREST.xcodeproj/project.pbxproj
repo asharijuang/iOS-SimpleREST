@@ -14,6 +14,7 @@
 		5F7C6A4D1B6B15BB00455AD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C6A4C1B6B15BB00455AD5 /* Images.xcassets */; };
 		5F7C6A501B6B15BB00455AD5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C6A4E1B6B15BB00455AD5 /* LaunchScreen.xib */; };
 		5F7C6A5C1B6B15BC00455AD5 /* SimpleRESTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C6A5B1B6B15BC00455AD5 /* SimpleRESTTests.m */; };
+		5F7C6A671B6B160C00455AD5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C6A661B6B160C00455AD5 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		5F7C6A551B6B15BC00455AD5 /* SimpleRESTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleRESTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7C6A5A1B6B15BC00455AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F7C6A5B1B6B15BC00455AD5 /* SimpleRESTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleRESTTests.m; sourceTree = "<group>"; };
+		5F7C6A651B6B160C00455AD5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = ../TableViewController.h; sourceTree = "<group>"; };
+		5F7C6A661B6B160C00455AD5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 		5F7C6A3E1B6B15BB00455AD5 /* SimpleREST */ = {
 			isa = PBXGroup;
 			children = (
+				5F7C6A651B6B160C00455AD5 /* TableViewController.h */,
+				5F7C6A661B6B160C00455AD5 /* TableViewController.m */,
 				5F7C6A431B6B15BB00455AD5 /* AppDelegate.h */,
 				5F7C6A441B6B15BB00455AD5 /* AppDelegate.m */,
 				5F7C6A461B6B15BB00455AD5 /* ViewController.h */,
@@ -222,6 +227,7 @@
 				5F7C6A481B6B15BB00455AD5 /* ViewController.m in Sources */,
 				5F7C6A451B6B15BB00455AD5 /* AppDelegate.m in Sources */,
 				5F7C6A421B6B15BB00455AD5 /* main.m in Sources */,
+				5F7C6A671B6B160C00455AD5 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

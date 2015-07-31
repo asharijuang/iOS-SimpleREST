@@ -87,6 +87,23 @@
                         @{@"name": @"Clown", @"created": @"2014-08-21T04:23:01.639Z"}
                         ];
     */
+    // response format from server
+    /*[{
+        id: 4,
+    question: "Use the virtual RAM monitor, then you can input the redundant circuit!",
+    created_at: "2015-06-04T12:35:52.636Z",
+    updated_at: "2015-06-05T01:54:00.165Z",
+    exam_id: 1
+    },
+    {
+        id: 5,
+    question: "You can't index the hard drive without backing up the cross-platform SSL pixel!",
+    created_at: "2015-06-04T12:35:52.640Z",
+    updated_at: "2015-06-05T01:54:05.542Z",
+    exam_id: 1
+    }]
+    */
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuestionCell"];
     }

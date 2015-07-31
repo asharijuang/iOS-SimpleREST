@@ -9,13 +9,46 @@
 #import "TableViewController.h"
 
 @interface TableViewController ()
-
+@property (strong) NSArray *questionsJSON;
 @end
 
 @implementation TableViewController
+@synthesize questionsJSON;
+
+
+- (void)DownloadData {
+    //I use NSMutableString so we could append or replace parts of the URI with query parameters in the future
+    // Gunakan NSMutableString
+    NSMutableString *remoteUrl = [NSMutableString stringWithFormat:@"http://localhost:3000/api/v1/questions"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:remoteUrl] ];
+    NSError *jsonError = nil;
+    NSHTTPURLResponse *jsonResponse = nil;
+    
+    NSData *response;
+    do {
+        response = [NSURLConnection sendSynchronousRequest:request returningResponse:&jsonResponse error:&jsonError];
+    } while ([jsonError domain] == NSURLErrorDomain);
+    
+    if([jsonResponse statusCode] != 200) {
+        NSLog(@"%ld", (long)[jsonResponse statusCode]);
+    } else {
+        NSLog(@"%@", @"200 OK");
+    }
+    NSError* error;
+    if(response) {
+        //fishJson was defined earlier near the top as a NSArray object
+        questionsJSON = [NSJSONSerialization
+                    JSONObjectWithData:response
+                    options:kNilOptions
+                    error:&error];
+    }
+}
 
 - (void)viewDidLoad {
+    // semua method yang akan dipanggil di letakan disini
     [super viewDidLoad];
+    [self DownloadData];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,18 +73,31 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 3;
+    return [questionsJSON count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuestionCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    //temporary data to demonstrate the structure of a NSDictionary in an NSArray, which is the general structure of a JSON, this can be removed in a later stage
+    /*NSArray *questions = @[
+                        @{@"name": @"Dory", @"created": @"2014-06-21T04:23:01.639Z"},
+                        @{@"name": @"Angel", @"created": @"2014-07-21T04:23:01.639Z"},
+                        @{@"name": @"Clown", @"created": @"2014-08-21T04:23:01.639Z"}
+                        ];
+    */
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuestionCell"];
+    }
+    
+    //We will replace fishes with fishJson once we have code that downloads from the REST api
+    [cell.textLabel setText:[[questionsJSON objectAtIndex:indexPath.row] objectForKey:@"question"] ];
+    [cell.detailTextLabel setText:[[questionsJSON objectAtIndex:indexPath.row] objectForKey:@"created_at"]];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

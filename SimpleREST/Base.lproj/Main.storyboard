@@ -39,6 +39,8 @@
                             <outlet property="delegate" destination="yCN-ks-Df8" id="vNC-fF-jK4"/>
                         </connections>
                     </tableView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GjY-kz-8aZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
